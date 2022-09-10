@@ -1,0 +1,14 @@
+<header *ngIf="isLogged">
+	<div>
+		<nav>
+			<ul class="actions">
+				<li><a (click)="inicio()">Inicio</a></li>
+				<li><a (click)="nuevoJuego()">Crear juego</a></li>
+				<li><a (click)="listaJugadores()">Lista de juegos</a></li>
+			</ul>
+			<ul class="info">
+				<li><a (click)="logout()">Logout</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>

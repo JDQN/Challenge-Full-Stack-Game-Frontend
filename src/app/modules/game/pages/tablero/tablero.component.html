@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<br>
+<p-fieldset legend="Header" [toggleable]="true">
+    <p>Ronda #2</p>
+    <p>Jugadores 4/5</p>
+</p-fieldset>
+
+<br>
+
+<p-fieldset legend="Partida" [toggleable]="true">
+    <div class="card">
+        <p-splitter styleClass="mb-2">
+            <ng-template pTemplate>
+
+                <div class="containerCard">
+
+                    <p-card class="container" subheader="Venom" [style]="{'margin':'9px'}">
+                        <ng-template class="imgVenom" pTemplate="header">
+                            <img alt="Card" src="../../../../../assets/img/0BF.jpg">
+                        </ng-template>
+                    </p-card>
+
+                    <p-card subheader="Hombre Araña" [style]="{'margin':'9px'}">
+                        <ng-template pTemplate="header">
+                            <img alt="Card" src="../../../../../assets/img/0E0.jpg" width="250">
+                        </ng-template>
+                    </p-card>
+
+                </div>
+
+                <div class="containerCard">
+                    <p-card subheader="Hombre Araña" [style]="{'margin':'9px'}">
+                        <ng-template pTemplate="header">
+                            <img alt="Card" src="../../../../../assets/img/0E0.jpg">
+                        </ng-template>
+                    </p-card>
+                    <p-card subheader="Wolverine" [style]="{'margin':'9px'}">
+                        <ng-template pTemplate="header">
+                            <img alt="Card" src="../../../../../assets/img/F89.jpg">
+                        </ng-template>
+                    </p-card>
+                </div>
+
+            </ng-template>
+
+            <ng-template pTemplate>
+                <div class="col flex align-items-center justify-content-center">
+                    Panel 2
+                </div>
+            </ng-template>
+
+        </p-splitter>
+    </div>
+</p-fieldset>

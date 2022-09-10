@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+<div class="surface-section mt-6 px-6 py-8 md:px-6 lg:px-8">
+    <div class="text-700 text-center">
+        <div class="text-blue-600 font-bold mb-3">
+            <i class="pi pi-send"></i>&nbsp;&nbsp;&nbsp;ENPECEMOS A JUGAR
+        </div>
+
+        <div class="text-700 text-2xl mb-3">Crea un juego o invita a tus amigos a jugar</div>
+
+        <pButton
+            pButton pRipple 
+            label="Crear Juego" 
+            class="btn mr-3" 
+            icon="pi pi-users" 
+            (click)="crearJuego()">
+        </pButton>
+
+        <pButton
+            pButton pRipple 
+            label="Juegos Creados" 
+            class="btn"
+            icon="pi pi-users" 
+            (click)="listgames()">
+        </pButton>
+
+        <div class="text-blue-600 font-bold mt-6">
+            <i class="pi pi-send"></i>&nbsp;&nbsp;&nbsp;Invita a tus amigos a Jugar
+        </div>
+
+    </div>
+</div>
