@@ -12,7 +12,7 @@ export class WebSocketserviceTsService {
   constructor() { }
 
   conection(idJuego: string){
-    return this.socke = webSocket(`ws://localhost:9090/retrieve/${idJuego}`)
+    return this.socke = webSocket(`ws://localhost:8081/retrieve/${idJuego}`)
 
   }
 

@@ -1,16 +1,20 @@
 <app-navbar></app-navbar>
-<!--<p>Hola soy la vista de lista de Juegos</p>-->
-<div >
-  <h1 class = "title">Lista Juegos</h1>
-</div>
-<div class="container">
-  <ul class="list-group">
-    <li class="list-group-item" *ngFor="let juego of dataSource">
-      <span>Id Del Juego:  {{juego.id}}</span><br>
-      <span>Estado del Juego:   {{juego.iniciado}}</span><br>
-      <span>Cantidad de Jugadores: {{juego.cantidadJugadores}}</span><br>
-      <button (click)="goBoard()" class="btn btn-primary">Entar</button>
-    </li>
-  </ul>
-</div>
+
+<p-card 
+  [style]="{width: '300px'}" 
+  styleClass="p-card-shadow"
+  *ngFor="let juego of dataSource">
+  
+  <ng-template pTemplate="header">
+      <img alt="Card" src="../../../../../assets/img/usercard.png">
+  </ng-template>
+
+  <h5 class="card-title">Id Del Juego: {{juego.id}}</h5>
+  <h5 class="card-title">Estado del Juego: {{juego.iniciado}}</h5>
+  <p class="card-text">Cantidad de Jugadores: {{juego.cantidadJugadores}}</p>
+
+  <ng-template pTemplate="footer">
+      <p-button label="Enviar" icon="pi pi-check" (click)="goBoard()"></p-button>
+      <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.3em'}"></p-button>
+  </ng-template>
 

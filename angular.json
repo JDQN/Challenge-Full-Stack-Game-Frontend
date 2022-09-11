@@ -35,7 +35,7 @@
               {
                 "input": "src/theme-lara-light-teal.scss",
                 "bundleName": "lara-light-teal",
-                "inject": false
+                "inject":false
               },
               {
                 "input": "src/theme-lara-dark-teal.scss",
