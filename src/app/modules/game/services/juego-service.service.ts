@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { JuegoModel22 } from '../models/juego.model'; 
+import { JuegoModel } from '../models/juego.model'; 
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,8 +14,8 @@ export class JuegoServiceService {
     return this.http.post('http://localhost:8080/juego/crear/', {...body})
   }
 
-  listarJuegos(idJugadorPrincipal: string | null):Observable<JuegoModel22[]>{
-    return this.http.get<JuegoModel22[]>(`http://localhost:8080/juego/listar/${idJugadorPrincipal}`);
+  listarJuegos(idJugadorPrincipal: string | null):Observable<JuegoModel[]>{
+    return this.http.get<JuegoModel[]>(`http://localhost:8080/juego/listar/${idJugadorPrincipal}`);
   }
   
 }

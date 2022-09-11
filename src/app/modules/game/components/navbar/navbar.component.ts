@@ -3,7 +3,9 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { AuthService } from 'src/app/modules/shared/services/auth.service';
-
+import { JuegoModel } from '../../models/juego.model';
+import { JuegoServiceService } from '../../services/juego-service.service';
+import firebase from 'firebase/compat'
 
 
 @Component({
@@ -17,10 +19,13 @@ export class NavbarComponent implements OnInit {
   items!: MenuItem[];
   title = 'app-cartas';
   themeSelection: boolean = false;
+  dataSource: JuegoModel[] = [];
+  currentUser!: firebase.User | null
 
   constructor(
     private router: Router, 
     private authService: AuthService,
+    private juegoservice: JuegoServiceService,
     @Inject(DOCUMENT) private document: Document) { 
       let theme = window.localStorage.getItem('theme');
       if (theme) {
@@ -40,10 +45,10 @@ export class NavbarComponent implements OnInit {
     isLogged: boolean = true;
     user: any = JSON.parse(localStorage.getItem('user')!);
     puntaje: number = +JSON.parse(localStorage.getItem('puntaje')!);
+    /* this.juegoservice.listarJuegos(this.currentUser!.uid).subscribe(juego => this.dataSource = juego) */
 
 
     ngOnInit(): void {
-
       this.items = [
         {
         label: 'Home',

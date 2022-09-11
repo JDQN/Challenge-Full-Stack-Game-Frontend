@@ -1,6 +1,4 @@
-
-
-export interface JuegoModel22 {
+export interface JuegoModel {
     id:string,
     iniciado: boolean,
     cantidadJugadores: number,
