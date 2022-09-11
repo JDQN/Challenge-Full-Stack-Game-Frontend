@@ -9,31 +9,6 @@ option{
    padding: 2%;
    text-transform: uppercase;
 }
-
-
-button {
-   --glow-color: rgb(255, 255, 255);
-   --glow-spread-color: #fe0000;
-   --enhanced-glow-color: rgb(241, 195, 202);
-   --btn-color: rgb(255, 23, 68);
-   border:none;
-   padding: 1em 3em;
-   color: var(--glow-color);
-   font-size: 15px;
-   font-weight: bold;
-   background-color: var(--btn-color);
-   border-radius: 6px !important;
-   outline: none;
-   box-shadow: 0 0 1em .16em var(--glow-color),
-      0 0 3em 1em var(--glow-spread-color),
-      inset 0 0 .60em .16em var(--glow-color);
-   text-shadow: 0 0 .3em var(--glow-color);
-   position: relative;
-   transition: all 0.3s;
-   margin-top: 30px;
-   box-shadow: 0 6px 30px rgba(179, 0, 255, 0.369) !important;
-}
-
 button::after {
    pointer-events: none;
    content: "";
@@ -47,7 +22,6 @@ button::after {
    opacity: .6;
    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
 }
-
 button:hover {
    color: var(--glow-color);
    background-color: var(--btn-color) !important;

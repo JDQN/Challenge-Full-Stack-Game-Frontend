@@ -18,12 +18,12 @@
   </form>
   <ng-template pTemplate="footer">
 
-    <button  
+    <button 
       pButton pRipple 
-      mat-raised-button
-      class="btn" 
-      type="submit" 
-      label="Crear Juego" 
+      type="button" 
+      label="Primary"
+      type="submit"
+      label="Crear Juego"
       icon="pi pi-check" 
       (click)="enviar()"
       [disabled]="frmJugadores.invalid">
