@@ -9,7 +9,7 @@ import firebase from 'firebase/compat'
 @Component({
   selector: 'app-juegos',
   templateUrl: './juegos.component.html',
-  styleUrls: ['./juegos.component.scss']
+  styleUrls: ['./juegos.component.css']
 })
 export class JuegosComponent implements OnInit {
   

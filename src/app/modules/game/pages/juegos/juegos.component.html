@@ -1,20 +1,45 @@
 <app-navbar></app-navbar>
 
-<p-card 
-  [style]="{width: '300px'}" 
-  styleClass="p-card-shadow"
-  *ngFor="let juego of dataSource">
-  
-  <ng-template pTemplate="header">
-      <img alt="Card" src="../../../../../assets/img/usercard.png">
-  </ng-template>
 
-  <h5 class="card-title">Id Del Juego: {{juego.id}}</h5>
-  <h5 class="card-title">Estado del Juego: {{juego.iniciado}}</h5>
-  <p class="card-text">Cantidad de Jugadores: {{juego.cantidadJugadores}}</p>
+<div class="surface-ground px-4 py-8 md:px-6 lg:px-8">
+    <div class="text-900 font-bold text-6xl mb-4 text-center">Lista de Juegos Creados</div>
+    <div class="text-700 text-xl mb-6 text-center line-height-3">Lorem ipsum dolor sit, amet consectetur adipisicing
+        elit. Velit numquam eligendi quos.</div>
 
-  <ng-template pTemplate="footer">
-      <p-button label="Enviar" icon="pi pi-check" (click)="goBoard()"></p-button>
-      <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.3em'}"></p-button>
-  </ng-template>
+    <div class="grid">
+        <div class="col-12 lg:col-4" *ngFor="let juego of dataSource">
+            <div class="p-3 h-full">
+                <div class="shadow-2 p-3 h-full flex flex-column surface-card" style="border-radius: 6px">
 
+                    <div class="text-900 font-medium text-xl mb-2">Id del Juego</div>
+                    <div class="text-600">{{juego.id}}</div>
+
+                    <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+
+                    <div class="flex align-items-center">
+                        <span class="text-900 font-medium text-xl mb-2">Cantidad de Jugadores &nbsp; </span>
+                        <span class=" text-green-500 text-900 font-medium text-xl mb-2">
+                            {{juego.cantidadJugadores}}</span>
+                    </div>
+
+                    <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+
+                    <ul class="list-none p-0 m-0 flex-grow-1">
+                        <li class="flex align-items-center mb-3">
+                            <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                            <span class="text-900">Estado del Juego: {{juego.iniciado}}</span>
+                        </li>
+                    </ul>
+
+                    <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
+
+                    <span class="p-buttonset m-auto">
+                        <button pButton pRipple label="Enviar" icon="pi pi-check" class="p-button-outlined"
+                            (click)="goBoard()"></button>
+                        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-outlined"></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
