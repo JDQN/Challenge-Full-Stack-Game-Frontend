@@ -45,7 +45,7 @@ export class NavbarComponent implements OnInit {
     isLogged: boolean = true;
     user: any = JSON.parse(localStorage.getItem('user')!);
     puntaje: number = +JSON.parse(localStorage.getItem('puntaje')!);
-    
+    /* this.juegoservice.listarJuegos(this.currentUser!.uid).subscribe(juego => this.dataSource = juego) */
 
 
     ngOnInit(): void {
