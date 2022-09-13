@@ -44,9 +44,8 @@ export class NewGameComponent implements OnInit, OnDestroy {
       complete: () => console.log("completado"),
     })
   }
-
+/* 
   public submit(): void {
-
     const gamers = this.frmJugadores.getRawValue();
     console.log(gamers.jugadores.push(this.currentUser?.displayName));
     gamers.jugadores.push(this.currentUser?.uid);
@@ -61,7 +60,7 @@ export class NewGameComponent implements OnInit, OnDestroy {
       },
       complete: () => console.log("completed")
     });
-  }
+  } */
 
   private createFormJugadores(): FormGroup {
     return new FormGroup({
@@ -71,8 +70,6 @@ export class NewGameComponent implements OnInit, OnDestroy {
   btnCrearJuego() {
     this.router.navigate(['listaJugadores']);
   }
-
-
   btnLogout(): void {
     this.auth$.logout();
   }
@@ -91,10 +88,11 @@ export class NewGameComponent implements OnInit, OnDestroy {
       juegoId: this.uuid,
       jugadores,
       jugadorPrincipalId: this.currentUser?.uid
-    }).subscribe(data => {
-      console.log(data);
-      this.router.navigate(['listaJugadores']);
+    }).subscribe({
+      next:(message:any)=>console.log(message),
+      error:(error:any) =>console.log(error),
+      /* complete:() =>this.router.navigate(['/lista/juegos']), */
     });
+    setTimeout(()=>this.router.navigate(['/listaJugadores']),1000) 
   }
-
 }

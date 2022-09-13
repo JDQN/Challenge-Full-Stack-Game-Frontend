@@ -16,20 +16,18 @@ export class JugadoresService {
 
   private usersCollection: AngularFirestoreCollection<Usuario>;
 
-  constructor(   private storage: AngularFirestore, private http: HttpClient
-    ) {
-     this.usersCollection= storage.collection<Usuario>('usuarios');
+  constructor(
+    private storage: AngularFirestore, 
+    private http: HttpClient) 
+    {this.usersCollection= storage.collection<Usuario>('usuarios');}
 
-     }
 
-
-  game(gamers: Array<string>):Observable<Game>  {
+/*   game(gamers: Array<string>):Observable<Game>  {
   return this.http.post<Game>(`${environment.urlBase}/game`, {gamers}, {headers: {
       'Content-Type': 'application/json'
-   }
-  });
-
-  }
+      }
+    });
+  } */
 
 async getJugadores():Promise <Array<Usuario>>{
   const result = await  new Promise<Usuario[]>((resolve, reject) => {
@@ -65,9 +63,6 @@ if (user != null) {
     .then(()=>console.log('jugador registrado'));
   }
 }
-
-
-
 
 }
 

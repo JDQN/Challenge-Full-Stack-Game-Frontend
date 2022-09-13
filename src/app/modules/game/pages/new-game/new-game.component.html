@@ -3,7 +3,7 @@
 <p-card class="container-card text-center aling-content-center" header="Crear Juego"
   [style]="{'width': '30rem', 'margin-bottom': '2em'}">
 
-  <form id="frmJugadores" [formGroup]="frmJugadores" (ngSubmit)="frmJugadores.valid ? submit() : false">
+  <form id="frmJugadores" [formGroup]="frmJugadores" (ngSubmit)="frmJugadores.valid ? enviar() : false">
 
     <select name="jugadores" multiple formControlName="jugadores">
       <option *ngFor="let jugador of jugadores" [value]="[jugador.id, jugador.name]">

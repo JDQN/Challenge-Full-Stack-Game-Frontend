@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JuegoRoutingsModule } from './juego-routing.module'; 
 import { NavbarComponent } from './game/components/navbar/navbar.component';
 
+//Libreria PrimeNG
 import { StyleClassModule } from 'primeng/styleclass';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { MenubarModule } from 'primeng/menubar';
