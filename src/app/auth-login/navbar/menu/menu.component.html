@@ -1,14 +1,26 @@
 <header *ngIf="isLogged">
-	<div>
-		<nav>
-			<ul class="actions">
-				<li><a (click)="inicio()">Inicio</a></li>
-				<li><a (click)="nuevoJuego()">Crear juego</a></li>
-				<li><a (click)="listaJugadores()">Lista de juegos</a></li>
-			</ul>
-			<ul class="info">
-				<li><a (click)="logout()">Logout</a></li>
-			</ul>
-		</nav>
-	</div>
-</header>
+</header> 
+
+
+<p-menubar [model]="items">
+   <ng-template pTemplate="start">
+      <img src="../../../assets/img/favicon.ico" height="40" class="mr-2">
+   </ng-template>
+
+   <ng-template pTemplate="end">
+
+      <a pRipple class="m-3 aling-item-end no-underline justify-content-center boder-circle text-500 cusor-pointer">
+         <p-inputSwitch 
+            [(ngModel)]="themeSelection" 
+            (onChange)="changeTheme($event.checked)">
+         </p-inputSwitch>
+      </a>
+      
+      <a
+         pButton pRipple 
+         class="btn  " 
+         label="Logaut"
+         (click)="logout()">
+      </a>
+   </ng-template>
+</p-menubar>

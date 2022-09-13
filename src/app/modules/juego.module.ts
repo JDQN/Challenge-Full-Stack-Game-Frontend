@@ -8,7 +8,9 @@ import { TableroComponent } from './game/pages/tablero/tablero.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { JuegoRoutingsModule } from './juego-routing.module'; 
-import { NavbarComponent } from './game/components/navbar/navbar.component';
+//import { NavbarComponent } from './game/components/navbar/navbar.component';
+import { MenuComponent } from '../auth-login/navbar/menu/menu.component';
+
 
 //Libreria PrimeNG
 import { StyleClassModule } from 'primeng/styleclass';
@@ -41,15 +43,15 @@ import { TableModule } from 'primeng/table';
     BadgeModule,
     SplitterModule,
     FieldsetModule,
-    TableModule
+    TableModule,
+    
   ],
   declarations: [
-  NewGameComponent,
-  HomeComponent,
-  JuegosComponent,
-  TableroComponent,
-  NavbarComponent,
-  
+    NewGameComponent,
+    HomeComponent,
+    JuegosComponent,
+    TableroComponent,
+    MenuComponent
 ]
 })
 export class GameModuleModule { }

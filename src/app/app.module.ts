@@ -16,7 +16,7 @@ import { AppComponent } from './template/cards/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/environments/environment';
 import { GameModuleModule } from './modules/juego.module';
-import { NavbarModule } from './auth-login/navbar/navbar.module'; 
+
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { NavbarModule } from './auth-login/navbar/navbar.module';
     AngularFireAuthModule,
     HttpClientModule,
     GameModuleModule,
-    NavbarModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
