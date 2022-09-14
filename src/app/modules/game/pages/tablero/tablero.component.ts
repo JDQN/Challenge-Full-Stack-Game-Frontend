@@ -56,6 +56,15 @@ export class TableroComponent implements OnInit {
 
             if(event.type === 'cardgame.rondainiciada'){
               this.roundStarted = false;
+              this.cartasDelJugador = this.cartasDelJugador;
+            }
+
+            if (event.type === 'cardgame.rondacreada') {
+              this.tiempo = event.tiempo;
+              this.numeroRonda = event.ronda.numero;
+             /*  this.cartasDelJugador = this.cartasDelJugador; */
+              this.limpiarTablero();
+              this.btnIniciarHabilitado = true;
             }
 
             if (event.type === 'cardgame.ponercartaentablero') {
@@ -67,12 +76,38 @@ export class TableroComponent implements OnInit {
                 url: event.carta.url
               });
             } 
+
             if (event.type === 'cardgame.cartaquitadadelmazo') {
               this.cartasDelJugador = this.cartasDelJugador
                 .filter((item) => item.cartaId !==  event.carta.cartaId.uuid);
             }
+
+            if(event.type === 'cardgame.cartasasignadasajugador'){
+              if(event.ganadorId.uuid === this.uid){
+                event.cartasApuesta.forEach((carta: any) => {
+                  this.cartasDelJugador.push({
+                    cartaId: carta.cartaId.uuid,
+                    poder: carta.poder,
+                    estaOculta: carta.estaOculta,
+                    estaHabilitada: carta.estaHabilitada,
+                    url: carta.url
+                  });
+                });
+                alert("Ganaste la ronda!")
+              }else{
+                alert("Perdiste la ronda :(")
+              }
+            }
+
+            if(event.type === 'cardgame.rondaterminada'){
+              this.cartasDelTablero = []
+            } 
+
+            if(event.type === 'cardgame.rondainiciada'){
+              this.roundStarted = false;
+            }
+
           }
-          
         })
       })
 
@@ -100,6 +135,8 @@ export class TableroComponent implements OnInit {
         }).subscribe(e =>console.log(e))
       }
 
-
+      limpiarTablero(){
+        this.cartasDelTablero.length-=this.cartasDelTablero.length;
+      }
 
 }
