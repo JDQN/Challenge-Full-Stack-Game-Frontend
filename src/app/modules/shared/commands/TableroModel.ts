@@ -21,5 +21,6 @@ export interface Carta {
    cartaId:string,
    estaOculta:boolean,
    poder:number,
-   estaHabilitada:boolean
+   estaHabilitada:boolean,
+   url:string
 }

@@ -10,7 +10,7 @@ import { Carta } from 'src/app/modules/shared/commands/TableroModel';
 @Component({
   selector: 'app-tablero',
   templateUrl: './tablero.component.html',
-  styleUrls: ['./tablero.component.scss']
+  styleUrls: ['./tablero.component.css']
 })
 
 export class TableroComponent implements OnInit {
@@ -38,16 +38,41 @@ export class TableroComponent implements OnInit {
     ngOnInit(){
       this.route.params.subscribe((params) => {
         this.juegoId = params['id'];
-  
+
+
+        this.uid = this.authService$.obtenerUsuarioSesion().uid;
+        this.juegoService$.getMiMazo(this.uid, this.juegoId).subscribe((element:any) => {
+          this.cartasDelJugador = element.cartas;
+          console.log(this.cartasDelJugador)
+        });
+        
+
         this.ws.conection(this.juegoId).subscribe({
           next: (event:any) => {
+
             if (event.type === 'cardgame.tiempocambiadodeltablero') {
               this.tiempo = event.tiempo;
             }
+
             if(event.type === 'cardgame.rondainiciada'){
               this.roundStarted = false;
             }
+
+            if (event.type === 'cardgame.ponercartaentablero') {
+              this.cartasDelTablero.push({
+                cartaId: event.carta.cartaId,
+                poder: event.carta.poder,
+                estaOculta: event.carta.estaOculta,
+                estaHabilitada: event.carta,
+                url: event.carta.url
+              });
+            } 
+            if (event.type === 'cardgame.cartaquitadadelmazo') {
+              this.cartasDelJugador = this.cartasDelJugador
+                .filter((item) => item.cartaId !==  event.carta.cartaId.uuid);
+            }
           }
+          
         })
       })
 
@@ -58,6 +83,7 @@ export class TableroComponent implements OnInit {
       });
       
     }
+    
       iniciarRonda(){
         this.ws.conection(this.juegoId).subscribe(data => console.log(data));
         this.juegoService$.iniciarRonda({
@@ -65,5 +91,15 @@ export class TableroComponent implements OnInit {
     
         }).subscribe( x => console.log(x));
       }
+
+      ponerCarta(cartaId: string){
+        this.juegoService$.ponerCartaEnTablero({
+          juegoId:this.juegoId,
+          cartaId:cartaId,
+          jugadorId: this.uid
+        }).subscribe(e =>console.log(e))
+      }
+
+
 
 }

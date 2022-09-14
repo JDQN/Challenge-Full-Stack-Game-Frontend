@@ -1,7 +1,6 @@
 export interface Card{
-id: string;
-name: string;
-description: string;
-photo: string;
-
+   id: string;
+   name: string;
+   description: string;
+   photo: string;
 }

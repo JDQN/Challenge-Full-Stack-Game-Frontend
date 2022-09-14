@@ -16,6 +16,7 @@ export class JuegosComponent implements OnInit {
 
   dataSource: JuegoModel[] = [];
   currentUser!: firebase.User | null
+  juegos: any = [];
   
 
   constructor(
@@ -24,9 +25,17 @@ export class JuegosComponent implements OnInit {
     private auth$: AuthService,
     private Websocket$: WebSocketserviceTsService) { }
 
-  async ngOnInit() {
-    this.currentUser = await this.auth$.getUserAuth();
+  ngOnInit(): void {
+    /* this.currentUser = await this.auth$.getUserAuth();
     this.juegoservice.listarJuegos(this.currentUser!.uid).subscribe(juego => this.dataSource = juego)
+    */
+
+    this.juegoservice.getJuegos().subscribe({
+      next:(data) => {
+        this.juegos = data;
+        console.log(this.juegos)
+      }
+    })
   }
 
   goBoard(id: string) {

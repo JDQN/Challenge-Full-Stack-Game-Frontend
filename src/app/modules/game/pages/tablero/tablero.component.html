@@ -1,12 +1,13 @@
 <app-menu></app-menu>
 <br>
-<p-fieldset legend="Header" [toggleable]="true">
-    <p>Numero de Ronda: {{numeroRonda}}</p>
-    <p>Jugadores: {{jugadoresRonda}}</p>
-    <h3>Tiempo: {{tiempo}}</h3>
+<p-fieldset legend="Datos del Juego" [toggleable]="true">
+    <p class="mt-1">Numero de Ronda: {{numeroRonda}}</p>
+    <p class="mt-1">Jugadores: {{jugadoresRonda}}</p>
+    <p class="mt-1">Tiempo: {{tiempo}}</p>
 
     <button 
-        pButton pRipple 
+        pButton pRipple
+        class="btnPonerCarta" 
         type="button" 
         label="Primary"
         type="button"
@@ -19,48 +20,61 @@
 
 <br>
 
-<p-fieldset legend="Partida" [toggleable]="true">
-    <div class="card">
-        <p-splitter styleClass="mb-2">
-            <ng-template pTemplate>
-
-                <div class="containerCard">
-
-                    <p-card class="container" subheader="Venom" [style]="{'margin':'9px'}">
-                        <ng-template class="imgVenom" pTemplate="header">
-                            <img alt="Card" src="../../../../../assets/img/0BF.jpg">
-                        </ng-template>
-                    </p-card>
-
-                    <p-card subheader="Hombre Araña" [style]="{'margin':'9px'}">
-                        <ng-template pTemplate="header">
-                            <img alt="Card" src="../../../../../assets/img/0E0.jpg" width="250">
-                        </ng-template>
-                    </p-card>
-
+<p-fieldset legend="Cartas del Jugador" [toggleable]="true">
+    <div class="surface-card  border-round flex-column" id="carta">
+        <div style="height: 300px" class="border-2 border-dashed surface-border">
+            <div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
+                <div class="grid">
+                    <div class="col-6 md:col-3 lg:col-2" *ngFor="let card of cartasDelJugador">
+                        <div class="surface-card shadow-2 p-3 border-round">
+                            <div class="flex justify-content-between mb-3">
+                                <div>
+                                    <span class="block text-500 font-medium mb-1">Poder</span>
+                                    <span class="text-green-500 font-medium">{{card.poder}}</span>
+                                </div>
+                            </div>
+                            <span class="img">
+                                <img class="img" src="{{card.url}}" />
+                            </span>
+                            <button button pButton class="p-button-sm  m-3 p-button-outlined" 
+                                (click)="ponerCarta(card.cartaId)">Poner</button>
+                        </div>
+                    </div> 
                 </div>
-
-                <div class="containerCard">
-                    <p-card subheader="Hombre Araña" [style]="{'margin':'9px'}">
-                        <ng-template pTemplate="header">
-                            <img alt="Card" src="../../../../../assets/img/0E0.jpg">
-                        </ng-template>
-                    </p-card>
-                    <p-card subheader="Wolverine" [style]="{'margin':'9px'}">
-                        <ng-template pTemplate="header">
-                            <img alt="Card" src="../../../../../assets/img/F89.jpg">
-                        </ng-template>
-                    </p-card>
-                </div>
-
-            </ng-template>
-
-            <ng-template pTemplate>
-                <div class="col flex align-items-center justify-content-center">
-                    Panel 2
-                </div>
-            </ng-template>
-
-        </p-splitter>
+            </div>
+        </div>
     </div>
 </p-fieldset>
+
+
+<br>
+<br>
+
+
+<p-fieldset legend="Cartas del Tablero" [toggleable]="true">
+    <div class="surface-card p-4 shadow-2 border-round">
+        <div style="height: 300px" class="border-2 border-dashed surface-border">
+            <div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
+                <div class="grid">
+                    <div class="col-12 md:col-6 lg:col-3" *ngFor="let card of cartasDelTablero">
+                        <div class="surface-card shadow-2 p-3 border-round">
+                            <div class="flex justify-content-between mb-3">
+                                <div>
+                                    <span class="block text-500 font-medium mb-3">Poder</span>
+                                </div>
+                                <div class="flex align-items-center justify-content-center bg-blue-100 border-round" style="width:2.5rem;height:2.5rem">
+                                    <i class="pi pi-prime text-blue-500 text-xl"></i>
+                                </div>
+                            </div>
+                            <span class="text-green-500 font-medium">{{card.poder}}</span>
+                            <span class="img">
+                                <img class="img" src="{{card.url}}" />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</p-fieldset>
+

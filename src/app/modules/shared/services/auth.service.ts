@@ -29,14 +29,12 @@ export class AuthService {
     });
   }
   
+
   get user() {
-    if (this.isLoggedIn) {
-      return JSON.parse(localStorage.getItem('user')!);
-    }
-    throw new Error("No found uid");
+    return JSON.parse(localStorage.getItem('user')!);
   } 
 
-  
+
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null && user.emailVerified !== false ? true : false;
@@ -62,8 +60,12 @@ export class AuthService {
 
   private OAuthProvider(provider: AuthProvider) {
     return this.afAuth.signInWithPopup(provider)
-      .then((_res) => {
-        this.gamers$.addGamer(_res.user);
+      .then((res) => {
+
+        localStorage.setItem('user', JSON.stringify(res.user));
+        JSON.parse(localStorage.getItem('user')!)
+
+        this.gamers$.addGamer(res.user);
         this.ngZone.run(() => {
           //this.router.navigate(['game/new']);//redireccionamiento a el otro componente
           this.router.navigate(['home']);
@@ -72,4 +74,11 @@ export class AuthService {
         window.alert(error)
       })
   }
+
+  
+  obtenerUsuarioSesion() {
+    return JSON.parse(localStorage.getItem('user')!);
+  }
+
+  
 }

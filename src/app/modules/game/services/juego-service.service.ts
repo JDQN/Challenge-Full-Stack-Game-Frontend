@@ -5,11 +5,13 @@ import { Observable } from 'rxjs';
 import { TableroModel } from '../../shared/commands/TableroModel';
 import { IniciarJuegoCommand } from '../../shared/commands/IniciarJuegoCommands';
 import { CrearRondaCommand } from '../../shared/commands/CrearRondaCommands';
+import { PonerCartaCommand } from '../../shared/commands/ponerCartaEnTablero';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JuegoServiceService {
+
 
   constructor(private http: HttpClient) { }
 
@@ -41,4 +43,14 @@ export class JuegoServiceService {
   crearRonda(command: CrearRondaCommand){
     return this.http.post( 'http://localhost:8080/juego/crear/ronda', command);
   }
+
+  ponerCartaEnTablero(command: PonerCartaCommand){
+    return this.http.post('http://localhost:8080/juego/poner', command)
+  }
+
+  getJuegos(): Observable<JuegoModel[]> {
+    return this.http.get<JuegoModel[]>('http://localhost:8080/juegos/' );
+  }
+
+
 }
