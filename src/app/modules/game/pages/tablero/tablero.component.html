@@ -1,15 +1,17 @@
 <app-menu></app-menu>
 <br>
 <p-fieldset legend="Header" [toggleable]="true">
-    <p>Ronda #2</p>
-    <p>Jugadores 4/5</p>
+    <p>Numero de Ronda: {{numeroRonda}}</p>
+    <p>Jugadores: {{jugadoresRonda}}</p>
+    <h3>Tiempo: {{tiempo}}</h3>
 
     <button 
         pButton pRipple 
         type="button" 
         label="Primary"
-        type="submit"
-        label="Iniciar"
+        type="button"
+        label="Iniciar Ronda"
+        (click)="iniciarRonda()"
         icon="pi pi-check" >
     </button>
 

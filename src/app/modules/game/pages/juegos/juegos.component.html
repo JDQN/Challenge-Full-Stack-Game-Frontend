@@ -34,9 +34,20 @@
                     <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
 
                     <span class="p-buttonset m-auto">
-                        <button pButton pRipple label="Enviar" icon="pi pi-check" class="p-button-outlined"
-                            (click)="goBoard()"></button>
-                        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-outlined"></button>
+
+                        <ng-container *ngIf="!juego.iniciado">
+                            <button (click)="goBoard(juego.id)" mat-flat-button color="primary">Iniciar</button>
+                        </ng-container>
+
+                        <ng-container *ngIf="juego.iniciado">
+                            <button pButton pRipple(click)="entrar(juego.id)" mat-flat-button color="primary">Entrar</button>
+                        </ng-container>
+
+                        <!--  <button pButton pRipple label="Enviar" icon="pi pi-check" class="p-button-outlined"
+                            (click)="goBoard(juego.id)">
+                        </button>
+                        <button pButton pRipple label="Entrar" icon="pi pi-times" class="p-button-outlined">
+                        </button> -->
                     </span>
                 </div>
             </div>
