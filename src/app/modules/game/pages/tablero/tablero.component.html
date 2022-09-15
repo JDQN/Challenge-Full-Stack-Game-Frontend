@@ -52,6 +52,7 @@
         <div style="height: 300px" class="border-2 border-dashed surface-border">
             <div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
                 <div class="grid">
+
                     <div class="col-12 md:col-6 lg:col-3" *ngFor="let card of cartasDelTablero">
                         <div class="surface-card shadow-2 p-3 border-round">
                             <div class="flex justify-content-between mb-3">
@@ -62,11 +63,13 @@
                                     <i class="pi pi-prime text-blue-500 text-xl"></i>
                                 </div>
                             </div>
-                            <span class="text-green-500 font-medium">{{card.poder}}</span>
+                            <!-- <span class="text-green-500 font-medium">{{card.poder}}</span> -->
                             <span class="img">
-                                <img class="img" src="{{card.url}}" />
+                                <!-- <img class="img" src="{{card.url}}" /> -->
+                                <img class="img" src="../../../../../assets/img/CartaBoltiada.jpg" /> 
                             </span>
                         </div>
+
                     </div>
                 </div>
             </div>

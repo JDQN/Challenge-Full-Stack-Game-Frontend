@@ -68,8 +68,14 @@ export class MenuComponent implements OnInit {
           icon: 'pi pi-fw pi-plus',
           routerLink: ['/game/new']
         },
+        {
+          label: 'Historico del Juego',
+          icon: 'pi pi-fw pi-plus',
+          routerLink: ['/historico']
+        },
       ]
     }
+
 
     logout(){
       this.authService.logout()

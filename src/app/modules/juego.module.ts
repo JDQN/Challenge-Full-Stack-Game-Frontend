@@ -24,6 +24,7 @@ import { BadgeModule } from "primeng/badge";
 import { SplitterModule } from "primeng/splitter";
 import { FieldsetModule, } from 'primeng/fieldset';
 import { TableModule } from 'primeng/table';
+import { HistoricoComponent } from './game/pages/historico/historico.component';
 
 
 
@@ -51,7 +52,8 @@ import { TableModule } from 'primeng/table';
     HomeComponent,
     JuegosComponent,
     TableroComponent,
-    MenuComponent
+    MenuComponent,
+    HistoricoComponent
 ]
 })
 export class GameModuleModule { }

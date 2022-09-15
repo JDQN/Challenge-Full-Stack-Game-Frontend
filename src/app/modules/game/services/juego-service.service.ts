@@ -52,5 +52,8 @@ export class JuegoServiceService {
     return this.http.get<JuegoModel[]>('http://localhost:8080/juegos/' );
   }
 
+  getHistorico(id: string){
+    return this.http.get(`http://localhost:8080/juego/finalizados/${id}`);
+  }
 
 }

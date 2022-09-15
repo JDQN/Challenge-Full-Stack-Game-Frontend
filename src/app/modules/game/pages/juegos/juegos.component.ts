@@ -7,6 +7,7 @@ import firebase from 'firebase/compat'
 import { WebSocketserviceTsService } from '../../services/web-socketservice.ts.service';
 
 
+
 @Component({
   selector: 'app-juegos',
   templateUrl: './juegos.component.html',
@@ -24,6 +25,7 @@ export class JuegosComponent implements OnInit {
     private juegoservice: JuegoServiceService, 
     private auth$: AuthService,
     private Websocket$: WebSocketserviceTsService) { }
+
 
   ngOnInit(): void {
     /* this.currentUser = await this.auth$.getUserAuth();

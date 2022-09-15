@@ -36,14 +36,16 @@
 
                     <span class="p-buttonset m-auto">
 
-                        <ng-container *ngIf="!juego.iniciado">
-                            <button (click)="goBoard(juego.id)" mat-flat-button color="primary">Iniciar</button>
-                        </ng-container>
+                        <div *ngIf="!juego.finalizado">
+                            <ng-container *ngIf="!juego.iniciado">
+                                <button (click)="goBoard(juego.id)" mat-flat-button color="primary">Iniciar</button>
+                            </ng-container>
 
-                        <ng-container *ngIf="juego.iniciado">
-                            <button (click)="entrar(juego.id)" mat-flat-button color="primary">Entrar</button>
-                        </ng-container>
-
+                            <ng-container *ngIf="juego.iniciado">
+                                <button (click)="entrar(juego.id)" mat-flat-button color="primary">Entrar</button>
+                            </ng-container>
+                        </div>
+                        
                         <!--  <button pButton pRipple label="Enviar" icon="pi pi-check" class="p-button-outlined"
                             (click)="goBoard(juego.id)">
                         </button>

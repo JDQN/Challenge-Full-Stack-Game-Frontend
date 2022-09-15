@@ -6,7 +6,6 @@ import { AuthProvider, GoogleAuthProvider, User } from 'firebase/auth';
 import { JugadoresService } from '../../game/services/jugadores.service';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +16,8 @@ export class AuthService {
     private ngZone: NgZone,
     private router: Router,
     private afAuth: AngularFireAuth,
-    private gamers$: JugadoresService) {}
+    private gamers$: JugadoresService) 
+    {}
 
     
   logout() {

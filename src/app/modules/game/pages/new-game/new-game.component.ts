@@ -18,7 +18,7 @@ import { WebSocketserviceTsService } from '../../services/web-socketservice.ts.s
   templateUrl: './new-game.component.html',
   styleUrls: ['./new-game.component.css']
 })
-export class NewGameComponent implements OnInit, OnDestroy {
+export class NewGameComponent implements OnInit {
 
   frmJugadores: FormGroup;
   jugadores!: Array<Usuario>;

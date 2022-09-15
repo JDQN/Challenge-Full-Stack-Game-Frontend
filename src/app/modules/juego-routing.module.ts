@@ -1,3 +1,4 @@
+import { HistoricoComponent } from './game/pages/historico/historico.component';
 // Libraries
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -52,7 +53,14 @@ const routes: Routes = [
     component: TableroComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
+    path:'historico',
+    component: HistoricoComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
   }
+
 ];
 
 @NgModule({
