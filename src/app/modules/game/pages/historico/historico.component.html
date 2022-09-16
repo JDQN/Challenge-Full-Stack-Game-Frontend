@@ -1,5 +1,25 @@
-<div *ngFor="let data of data">
-   <p>{{data.id}}</p>
-   <p>{{data.ganador.alias}}</p>
-   <p>{{data.ganador.alias}}</p>
+<app-menu></app-menu>
+
+
+<div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
+   <div class="grid">
+
+      <div class="col-12 md:col-6 lg:col-3" *ngFor="let data of data">
+         <div class="surface-card shadow-2 p-3 border-round" >
+            <div class="flex justify-content-between mb-3" >
+               <div>
+                  <span class="block text-green-500 font-medium mb-3">Alias</span>
+                  <div class="text-200 font-normal text-sm">{{data.ganador.alias}}</div>
+               </div>
+               <div class="flex align-items-center justify-content-center bg-cyan-100 border-round"
+                  style="width:2rem;height:2rem">
+                  <i class="pi pi-inbox text-cyan-500 text-xl"></i>
+               </div>
+            </div>
+            <span class="text-green-500 font-medium">Id </span> <br>
+            <span class="text-500">{{data.id}}</span>
+         </div>
+      </div>
+
+   </div>
 </div>

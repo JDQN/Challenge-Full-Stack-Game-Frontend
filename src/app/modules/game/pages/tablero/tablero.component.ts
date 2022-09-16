@@ -7,6 +7,7 @@ import firebase from 'firebase/compat';
 import { Carta } from 'src/app/modules/shared/commands/TableroModel';
 import swal from'sweetalert2';
 
+
 @Component({
   selector: 'app-tablero',
   templateUrl: './tablero.component.html',

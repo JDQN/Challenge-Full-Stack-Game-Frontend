@@ -70,13 +70,13 @@ export class MenuComponent implements OnInit {
         },
         {
           label: 'Historico del Juego',
-          icon: 'pi pi-fw pi-plus',
+          icon: 'pi pi-fw pi-book',
           routerLink: ['/historico']
         },
       ]
     }
 
-
+    
     logout(){
       this.authService.logout()
       .then(() => {

@@ -13,10 +13,12 @@ import { TableroComponent } from './game/pages/tablero/tablero.component';
 
 import {
   AngularFireAuthGuard,
+  canActivate,
   redirectLoggedInTo,
   redirectUnauthorizedTo,
 } from '@angular/fire/compat/auth-guard';
 import { LoginComponent } from '../auth-login/auth/login/login.component';
+import { TablerocartasComponent } from '../admin/view/tablerocartas/tablerocartas.component';
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
@@ -59,7 +61,15 @@ const routes: Routes = [
     component: HistoricoComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
-  }
+  },
+  {
+    path: 'admin',
+    component: TablerocartasComponent,
+  },
+  {
+    path: '**',
+    redirectTo: "/login",
+  },
 
 ];
 

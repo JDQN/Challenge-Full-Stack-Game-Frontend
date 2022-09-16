@@ -16,6 +16,9 @@ import { AppComponent } from './template/cards/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/environments/environment';
 import { GameModuleModule } from './modules/juego.module';
+import { AdmincartasModule } from './admin/admincartas.module';
+
+
 
 
 
@@ -34,6 +37,7 @@ import { GameModuleModule } from './modules/juego.module';
     AngularFireAuthModule,
     HttpClientModule,
     GameModuleModule,
+    AdmincartasModule
     
   ],
   providers: [],
