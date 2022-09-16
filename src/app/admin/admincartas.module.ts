@@ -19,11 +19,23 @@ import { SplitterModule } from "primeng/splitter";
 import { FieldsetModule, } from 'primeng/fieldset';
 import { TableModule } from 'primeng/table';
 
+import { MessagesModule } from 'primeng/messages';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ActualizarComponent } from './view/actualizar/actualizar.component';
+
+import { ChipsModule } from 'primeng/chips';
+import {FormsModule} from '@angular/forms';
+import { CrearCartaComponent } from './view/crear-carta/crear-carta.component';
+
+
+
 
 @NgModule({
   declarations: [
     TablerocartasComponent,
-    LoginadminComponent
+    LoginadminComponent,
+    ActualizarComponent,
+    CrearCartaComponent
   ],
 
   imports: [
@@ -40,7 +52,11 @@ import { TableModule } from 'primeng/table';
     BadgeModule,
     SplitterModule,
     FieldsetModule,
-    TableModule
+    TableModule,
+    MessagesModule,
+    ConfirmDialogModule,
+    ChipsModule,
+    FormsModule
   ]
 })
 

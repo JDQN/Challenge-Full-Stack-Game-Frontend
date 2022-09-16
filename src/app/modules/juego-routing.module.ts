@@ -1,3 +1,4 @@
+import { ActualizarComponent } from './../admin/view/actualizar/actualizar.component';
 import { HistoricoComponent } from './game/pages/historico/historico.component';
 // Libraries
 import { NgModule } from '@angular/core';
@@ -19,6 +20,7 @@ import {
 } from '@angular/fire/compat/auth-guard';
 import { LoginComponent } from '../auth-login/auth/login/login.component';
 import { TablerocartasComponent } from '../admin/view/tablerocartas/tablerocartas.component';
+import { CrearCartaComponent } from '../admin/view/crear-carta/crear-carta.component';
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
@@ -66,6 +68,15 @@ const routes: Routes = [
     path: 'admin',
     component: TablerocartasComponent,
   },
+  {
+    path: 'actualizar',
+    component: ActualizarComponent,
+  },
+  {
+    path: 'crearcarta',
+    component: CrearCartaComponent,
+  },
+  
   {
     path: '**',
     redirectTo: "/login",

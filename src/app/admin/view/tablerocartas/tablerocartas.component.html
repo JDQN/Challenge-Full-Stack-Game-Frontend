@@ -1,32 +1,39 @@
 <div class="surface-ground px-4 py-8 md:px-6 lg:px-8">
-  <div class="text-900 font-bold text-6xl mb-4 text-center">Administrador de Cartas</div>
-  <div class="text-700 text-xl mb-6 text-center line-height-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos.</div>
+    <div class="text-900 font-bold text-6xl mb-4 text-center">Administrador de Cartas</div>
+    <div class="text-700 text-xl mb-6 text-center line-height-3">Lorem ipsum dolor sit, amet consectetur adipisicing
+        elit. Velit numquam eligendi quos.</div>
 
-  <div class="grid">
-      <div class="col-12 lg:col-4" *ngFor="let item of cartas;">
-          <div class="p-3 h-full">
-              <div class="shadow-2 p-3 h-full flex flex-column surface-card" style="border-radius: 6px">
-                  <div class="text-900 font-medium text-xl mb-2">Carta Id</div>
-                  <div class="text-600">{{item.id}}</div>
-                  <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
-                  <div class="flex align-items-center">
-                      <span class="font-bold text-2xl text-900">Poder: {{item.poder}}</span>
-                  </div>
+    <span class="p-buttonset p-button-outlined flex justify-content-end mr-3">
+        <p-button (click)="Actualizar()" icon="pi pi-check" label="Crear Nueva Carta"></p-button>
+    </span>
 
-                  <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
 
-                  <img [src]="item.uri" class="leaderboard__picture">
+    <div class="grid">
+        <div class="col-12 lg:col-4" *ngFor="let item of cartas;">
+            <div class="p-3 h-full">
+                <div class="shadow-2 p-3 h-full flex flex-column surface-card" style="border-radius: 6px">
+                    <div class="text-900 font-medium text-xl mb-2">Carta Id</div>
+                    <div class="text-600">{{item.id}}</div>
+                    <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+                    <div class="flex align-items-center">
+                        <span class="font-bold text-2xl text-900">Poder: {{item.poder}}</span>
+                    </div>
 
-                  <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
+                    <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
 
-                  <span class="p-buttonset">
-                    <button pButton type="button" label="Save" icon="pi pi-check" class="p-button-sm"></button>
-                    <button pButton type="button" label="Cancel" icon="pi pi-times" class="p-button-sm"></button>
-                </span>
+                    <img [src]="item.uri" class="leaderboard__picture">
 
-                
-              </div>
-          </div>
-      </div>
-  </div>
+                    <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
+
+                    <span class="p-buttonset flex justify-content-center ">
+                        <button pButton type="button" label="Acualizar" icon="pi pi-check"
+                            class="p-button-sm p-button-outlined"></button>
+                        <button pButton type="button" label="Eliminar" icon="pi pi-times"
+                            class="p-button-sm p-button-outlined"></button>
+                    </span>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

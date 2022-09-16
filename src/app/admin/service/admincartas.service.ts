@@ -15,4 +15,9 @@ export class AdmincartasService {
     return this.http.get<Cartas[]>(`${this.URL}/cartas`);
   }
 
+  
+  crearCarta(): Observable<Cartas[]> {
+    return this.http.get<Cartas[]>(`${this.URL}/carta/creada`);
+  }
+
 }
