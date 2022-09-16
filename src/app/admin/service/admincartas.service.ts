@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Carta } from 'src/app/modules/shared/commands/TableroModel';
 import { Cartas } from '../model/cartas.model';
 
 @Injectable({
@@ -9,6 +10,7 @@ import { Cartas } from '../model/cartas.model';
 export class AdmincartasService {
 
   private URL: string = 'http://localhost:8080';
+  
   constructor(private http: HttpClient) {}
 
   getGames(): Observable<Cartas[]> {
@@ -16,8 +18,10 @@ export class AdmincartasService {
   }
 
   
-  crearCarta(): Observable<Cartas[]> {
-    return this.http.get<Cartas[]>(`${this.URL}/carta/creada`);
+  crearCarta(carta: Carta): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+    return this.http.post(this.URL +"/carta/creada", JSON.stringify(carta), {headers: headers});
   }
 
 }

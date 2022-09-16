@@ -2,23 +2,26 @@
    
 <h2>Crear Nueva Carta</h2>
 
+<form [formGroup]="form" name="save" >
+
    <h5>Nombre de la carta</h5>
-   <p-chips [(ngModel)]="cartas">
+   <p-chips formControlName="nombre" [(ngModel)]="cartas" value="id" id="id" >
    </p-chips>
-
+   
    <h5>Poder de la carta</h5>
-   <p-chips [(ngModel)]="cartas" separator=",">
+   <p-chips formControlName="poder" [(ngModel)]="cartas" separator=",">
    </p-chips>
-
+   
    <h5>Img</h5>
-   <p-chips [(ngModel)]="cartas" separator=",">
+   <p-chips formControlName="url" [(ngModel)]="cartas" separator=",">
    </p-chips>
-
+   
    <br>
-
+   
    <span class="p-buttonset p-button-outlined flex justify-content-end mr-3">
       <p-button  icon="pi pi-arrow-left" (click)="volver()" label="Cancelar" class="mr-2"></p-button>
-      <p-button  icon="pi pi-check" label="Guardar Carta"></p-button>
+      <p-button (click)="guardar()" icon="pi pi-check" label="Guardar Carta"></p-button>
    </span>
    
+</form>
 </div>

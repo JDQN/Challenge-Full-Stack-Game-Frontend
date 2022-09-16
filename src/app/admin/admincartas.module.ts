@@ -26,9 +26,8 @@ import { ActualizarComponent } from './view/actualizar/actualizar.component';
 import { ChipsModule } from 'primeng/chips';
 import {FormsModule} from '@angular/forms';
 import { CrearCartaComponent } from './view/crear-carta/crear-carta.component';
-
-
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -56,7 +55,9 @@ import { CrearCartaComponent } from './view/crear-carta/crear-carta.component';
     MessagesModule,
     ConfirmDialogModule,
     ChipsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 
